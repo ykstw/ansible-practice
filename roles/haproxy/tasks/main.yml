@@ -7,7 +7,7 @@
   user: name={{ haproxy_user.username }} state=present shell={{ haproxy_user.shell }} home={{ haproxy_user.home }} group={{ haproxy_user.groupname }} uid={{ haproxy_user.uid }}
 
 - name: install haproxy
-  yum: name=haproxy-{{ haproxy_version }} state=installed 
+  yum: name=haproxy state=installed 
 
 - name: set custom config
   template: src=haproxy.cfg.j2 dest={{ haproxy_config_dir }}/haproxy.cfg mode=0644 owner={{ haproxy_user.username }} group={{ haproxy_user.groupname }}

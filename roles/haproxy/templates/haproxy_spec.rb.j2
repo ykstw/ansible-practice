@@ -13,9 +13,6 @@ describe user("{{ haproxy_user.username }}") do
   it { should have_login_shell '{{ haproxy_user.shell }}'}
 end
 
-describe package('haproxy') do
-  it { should be_installed.with_version('{{ haproxy_version }}') }
-end
 
 describe file('{{ haproxy_config_dir }}/haproxy.cfg') do
   it { should exist }
